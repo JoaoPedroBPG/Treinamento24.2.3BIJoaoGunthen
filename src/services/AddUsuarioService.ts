@@ -15,7 +15,7 @@ class AddUsuarioService {
     private usuarioRepository: UsuarioRepository;
 
     constructor(usuarioRepository: UsuarioRepository){  
-        this.usuarioRepository = new UsuarioRepository();
+        this.usuarioRepository = usuarioRepository;       
     }
 
     public execute(data:AddUsuarioRequest ) : Usuario[] {

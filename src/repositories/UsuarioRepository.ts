@@ -20,9 +20,12 @@ class UsuarioRepository {
         this.usuario = [];
     }
 
-    public add ({ nome, email, senha, telefone, cpf, dataDeNascimento}: AddUsuarioRequest): Usuario[] {
-        const usuario = new Usuario({ nome, email, senha, telefone, cpf, dataDeNascimento});
+    public add ({ nome, email, senha, telefone, cpf, dataDeNascimento}: AddUsuarioRequest) {
+        const usuario = new Usuario({ nome, email, senha, telefone, cpf, dataDeNascimento}); 
+        console.log(this.usuario.length);  
         this.usuario.push(usuario);
+        console.log(usuario);
+        console.log(this.usuario.length);  
         return this.usuario;    
     }
 
@@ -36,8 +39,18 @@ class UsuarioRepository {
 
     public finduserByTelefone(telefone: string): Usuario | undefined{
         return this.usuario.find(usuario => usuario.telefone === telefone);
-    }   
 
     }
+    public getAll(): Usuario[]{
+            return this.usuario;
+    }   
+
+    public getById(id: string): Usuario | undefined{
+        return this.usuario.find((usuario: Usuario) => usuario.id === id);
+
+    }
+
+}
+
 
 export default UsuarioRepository;   
