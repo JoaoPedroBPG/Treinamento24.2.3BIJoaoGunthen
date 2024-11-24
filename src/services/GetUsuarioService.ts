@@ -13,9 +13,9 @@ class GetUsuarioService {
     }
 
     public execute(data:GetUsuarioRequest ){
-       const usuario = this.usuarioRepository.getById(data.id);
+       const usuarioId = this.usuarioRepository.getById(data.id);
 
-       if(!usuario){
+       if(!usuarioId){
            throw new Error("Usuário não encontrado");
        }
     } 
